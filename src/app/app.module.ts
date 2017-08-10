@@ -4,17 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { StudentsComponent } from './students/students.component';
+
+import { StudentService } from './services/student.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    StudentService,
+    { provide: 'API_URL', useValue: 'http://localhost:3000/api/'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
